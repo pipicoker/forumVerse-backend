@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",                        // Enables top-level await, etc.
+     "module": "CommonJS",
+     "typeRoots": ["./node_modules/@types", "./types"],
+  "moduleResolution": "Node",            // Required when using `module: NodeNext`
+    "outDir": "./dist",                        // Compiled JS output
+    "rootDir": "./",                           // Where your source .ts files live
+    "esModuleInterop": true,                   // Enables default imports for CommonJS modules
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,                            // Optional: strict type checks
+    "skipLibCheck": true,                      // Optional: faster build
+    "resolveJsonModule": true                  // Allows `import data from './data.json'`
+  },
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
