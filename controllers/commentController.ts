@@ -5,16 +5,17 @@ import { io } from '../index';
 
 const prisma = new PrismaClient();
 
-function enrichComment(comment, userId) {
-  const upvotes = comment.votes ? comment.votes.filter(v => v.type === 'UP').length : 0;
-  const downvotes = comment.votes ? comment.votes.filter(v => v.type === 'DOWN').length : 0;
+
+function enrichComment(comment: any, userId: string | undefined) {
+  const upvotes = comment.votes ? comment.votes.filter((v: any) => v.type === 'UP').length : 0;
+  const downvotes = comment.votes ? comment.votes.filter((v: any) => v.type === 'DOWN').length : 0;
   const userVote = userId
-    ? (comment.votes?.find(v => v.userId === userId)?.type ?? null)
+    ? (comment.votes?.find((v: any) => v.userId === userId)?.type ?? null)
     : null;
 
   // Recursively enrich replies if present
   const replies = comment.replies
-    ? comment.replies.map(reply => enrichComment(reply, userId))
+    ? comment.replies.map((reply: any) => enrichComment(reply, userId))
     : [];
 
   return {
