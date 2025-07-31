@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "CommonJS",
-    "lib": ["ES2022"],
-    "typeRoots": ["./node_modules/@types"],
-    "moduleResolution": "Node",
+    "target": "ES2020",
+    "module": "CommonJS", 
+    "lib": ["ES2020", "DOM"],
+    "moduleResolution": "node",
     "outDir": "./dist",
     "rootDir": "./",
     "esModuleInterop": true,
@@ -16,11 +15,20 @@
     "resolveJsonModule": true,
     "declaration": false,
     "sourceMap": false,
-    "removeComments": true
+    "removeComments": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
   },
-  "include": ["./**/*.ts"],
-  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"],
-  "ts-node": {
-    "esm": false
-  }
+  "include": [
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ]
 }

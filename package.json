@@ -1,12 +1,13 @@
 {
   "name": "forumverse-backend",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "dist/index.js",
   "type": "commonjs",
   "scripts": {
-    "start": "ts-node index.ts",
+    "start": "node dist/index.js",
     "dev": "ts-node-dev --respawn --transpile-only index.ts",
-    "build": "tsc"
+    "build": "npm ci && npx prisma generate && npx tsc",
+    "postinstall": "npx prisma generate || true"
   },
   "keywords": [],
   "author": "",
@@ -41,9 +42,7 @@
     "typescript": "^5.8.3"
   },
   "devDependencies": {
-    
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0"
-    
   }
 }
